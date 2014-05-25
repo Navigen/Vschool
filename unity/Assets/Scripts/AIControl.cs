@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AIControl : MonoBehaviour {
+public class AIControl : Photon.MonoBehaviour
+{
 
     private Animator anim;							// a reference to the animator on the character
     private AnimatorStateInfo state;

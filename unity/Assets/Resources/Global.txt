@@ -9,10 +9,11 @@
 
 { "key":"Guest", "ru":"Гость", "en":"Guest"},
 { "key":"Join", "ru":"Присоединить", "en":"Join"},
+{ "key":"Join Course", "ru":"Присоединить", "en":"Join Course"},
 { "key":" currently available. Join either:", "ru":" в настоящее время. Присоединиться к любому", "en":" currently available. Join either:"},
 { "key":"Courses will be listed here, when they become available.", "ru":"Курсы будут перечислены здесь, когда они станут доступны.", "en":"Courses will be listed here, when they become available."},
 { "key":"Currently no games are available.", "ru":"В настоящее время курсы не доступны.", "en":"Currently no games are available."},
-{ "key":"Join Course", "ru":"Присоединить", "en":"Join Course"},
+{ "key":"Join Random", "ru":"Случайный", "en":"Join Random"},
 { "key":" users are online in ", "ru":" пользователей онлайн в ", "en":" users are online in "},
 { "key":"Create Course", "ru":"Создать Курс", "en":"Create Course"},
 { "key":"Course name:", "ru":"Имя Курса", "en":"Course name:"},

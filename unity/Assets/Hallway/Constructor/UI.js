@@ -1,17 +1,26 @@
 private var show = true;
+private var chat;
 
 var LBL1 = "Управление";
 var LBL2 = "ЛКМ - взаимодействие";
 var LBL3 = "ПКМ - камера";
 var LBL4 = "W/A/S/D - движение";
 var LBL5 = "Space - прыжок";
-var LBL6 = "Shift - бег";
+var LBL6 = "X - скрыть чат";
 var LBL7 = "I - скрыть очки";
 var LBL8 = "Z - скрыть это окно";
 
 function Update() 
 {
 	if (Input.GetKeyDown(KeyCode.Z)) show = !show;
+    if (Input.GetKeyDown(KeyCode.X))
+    {
+        chat = GameObject.Find("Bootstrap").GetComponent("InRoomChat");
+        if(chat.IsVisible)
+            chat.IsVisible = false;
+        else
+            chat.IsVisible = true;
+    }
 }
 
 function OnGUI () 

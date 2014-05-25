@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUINameOfAvatar : MonoBehaviour {
 
-    //public GameObject palyer;
+public class GUINameOfAvatar : Photon.MonoBehaviour
+{
+
+
     Vector3 pos;
     Vector3 worldPos;
     public string textUnderAvatar = "";
@@ -13,7 +15,7 @@ public class GUINameOfAvatar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if(isNetworking)
-            textUnderAvatar = PhotonNetwork.playerName;
+            textUnderAvatar = photonView.owner.name;
         style = new GUIStyle();
         style.fontSize = 14;
         style.fontStyle = FontStyle.Bold;

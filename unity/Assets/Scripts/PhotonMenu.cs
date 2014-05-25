@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class PhotonMenu : MonoBehaviour
 {
+
     private string roomName = "Информатика";
 
     private Vector2 scrollPos = Vector2.zero;
@@ -20,8 +21,11 @@ public class PhotonMenu : MonoBehaviour
 
     public static readonly string SceneNameGame = "world";
 
+    private string userName = Strings.Get("Guest");
+
     public void Awake()
     {
+        Application.ExternalCall("GetUserFromServer");
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.automaticallySyncScene = true;
 
@@ -35,11 +39,17 @@ public class PhotonMenu : MonoBehaviour
         // generate a name for this player, if none is assigned yet
         if (String.IsNullOrEmpty(PhotonNetwork.playerName))
         {
-            PhotonNetwork.playerName = Strings.Get("Guest") + Random.Range(1, 9999);
+            PhotonNetwork.playerName = userName + Random.Range(1, 9999);
         }
 
         // if you wanted more debug out, turn this on:
         // PhotonNetwork.logLevel = NetworkLogLevel.Full;
+    }
+
+    void GetUserFromServer(string JSONStringFromServer)
+    {
+        Debug.Log("JSON UserName " + JSONStringFromServer);
+        userName = JsonFx.Json.JsonReader.Deserialize<String>(JSONStringFromServer);
     }
 
     public void OnGUI()
@@ -123,7 +133,7 @@ public class PhotonMenu : MonoBehaviour
 
         GUILayout.Label(PhotonNetwork.countOfPlayers + Strings.Get(" users are online in ") + PhotonNetwork.countOfRooms + Strings.Get(" courses."));
         GUILayout.FlexibleSpace();
-        if (GUILayout.Button(Strings.Get("Join Course"), GUILayout.Width(100)))
+        if (GUILayout.Button(Strings.Get("Join Random"), GUILayout.Width(100)))
         {
             PhotonNetwork.JoinRandomRoom();
         }
